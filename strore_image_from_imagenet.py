@@ -6,7 +6,9 @@ import sys
 import io
 def storing_image():
     if not os.path.exists('row_pic'):
-                os.mkdir('row_pic',755)
+                os.mkdir('row_pic',755)#if os are linux for that need 755 for row_pic folder permition , other not need to add 755
+    #url.txt are collection of url, from imgnet website ..
+    #this image url are split newline and put into row_url  variable 
     with io.open('url.txt','r') as link:
         for row_url in link.readlines():
             print row_url
@@ -24,7 +26,6 @@ def storing_image():
                     print url_open
                     urllib.request.urlretrieve(url_open, "row_pic/"+str(pic_no)+".jpg")
                     img = cv2.imread("row_pic/"+str(pic_no)+".jpg",cv2.IMREAD_GRAYSCALE)
-                
                     resized_image = cv2.resize(img, (100, 100))
                     cv2.imwrite("row_pic/"+str(pic_no)+".jpg",resized_image)
                     print pic_no
