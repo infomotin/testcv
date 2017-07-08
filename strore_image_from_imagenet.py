@@ -10,9 +10,8 @@ def storing_image():
     with io.open('url.txt','r') as link:
         for row_url in link.readlines():
             print row_url
-            #row_url='http://image-net.org/api/text/imagenet.synset.geturls?wnid=n04555897'
             neg_image_urls = urllib.request.urlopen(row_url).read().decode('utf-8')
-            #for county of dir file
+            #for count of dir file
             file_no = os.listdir('row_pic')
             pic_num = len(file_no)
             print pic_num
@@ -34,8 +33,7 @@ def storing_image():
 
                 except Exception as e:
                         print(str(e))
-#reload(sys)  
-#sys.setdefaultencoding('utf8')
+#call function 
 storing_image()                
 def find_uglies():
   if not os.path.exists('uglies'):
